@@ -1,0 +1,228 @@
+//Paleta de colores
+$main_color: #76B729;
+$text_white: #fff;
+
+// Small tablets and large smartphones (landscape view)
+$screen-sm-min: 576px;
+// Small tablets (portrait view)
+$screen-md-min: 768px;
+// Large tablets and desktops
+$screen-lg-min: 1100px;
+// Mixins para responsive design
+
+// Mobile devices
+
+ // Medium devices
+ @mixin md {
+    @media (min-width: #{$screen-md-min}) {
+        @content;
+    }
+ }
+
+ // Large devices
+ @mixin lg {
+    @media (min-width: #{$screen-lg-min}) {
+        @content;
+    }
+ }
+
+.fabrica {
+  margin: 30px auto;
+  width: 100%;
+  text-align: center;
+  @include md{
+    padding: 50px 0;
+  }
+  h2{
+    color: $main_color;
+    font-size: 2.55em;
+    @include md{
+      font-size: 3.55em;
+    }
+  }
+  h3{
+    color: $text_white;
+    font-size: 1.25em;
+    line-height: 1.55em;
+  }
+   h4{
+    color: $text_white;
+    font-size: 1.25em;
+    line-height: 1.55em;
+  }
+  label{
+    background-size: 70% !important;
+    border: 5px $text_white solid;
+    border-radius: 50%;
+    cursor: pointer;
+    display: inline-block;
+    height: 200px;
+    margin: 10px;
+    text-indent: -999em;
+    width: 200px;
+    @include md{
+      height: 250px;
+      width: 250px;
+    }
+    @include lg{
+      height: 300px;
+      width: 300px;
+    }
+    &[for="b-100"]{
+      background: url('../images/billete_100.png') no-repeat center;
+    }
+    &[for="b-200"]{
+      background: url('../images/billete_200.png') no-repeat center;
+    }
+    &[for="b-500"]{
+      background: url('../images/billete_500.png') no-repeat center;
+    }
+
+  }
+  input[type="radio"]{
+    &:checked + label {
+      background-color: $text_white;
+      border: 5px solid $main_color;
+      transition: 1s;
+    } 
+  }
+  &__botones {
+    display: inline-block;
+    margin: 35px 0 0;
+    @include md {
+      width: 100%;
+    }
+    button{
+      color: $main_color;
+      border: 1px solid $main_color;
+      border-radius: 30px;
+      font-size: 1.35em;
+    }
+    &__siguiente{
+      margin-left: 10px;
+      float: right;
+    }
+    &__regresar{
+      margin-right: 10px;
+      float: left;
+    }
+  }
+  &__steps{
+    margin: 35px 0 0;
+    .step {
+      background-color: #9D9D9C;
+      border: none;
+      border-radius: 50%;
+      display: inline-block;
+      height: 15px;
+      margin: 0 2px;
+      opacity: 0.5;
+      width: 15px;
+    }
+    .active {
+      opacity: 1;
+      background-color: #4CAF50 !important;
+    }
+    .finish {
+      background-color: #4CAF50;
+    }
+    
+  }
+
+}
+
+  .image_area {
+		  position: relative;
+		}
+
+		img {
+		  	display: block;
+		  	max-width: 100%;
+		}
+
+		.preview {
+  			overflow: hidden;
+  			width: 160px; 
+  			height: 160px;
+  			margin: 10px;
+  			border: 1px solid red;
+		}
+
+		.modal-lg{
+  			max-width: 1000px !important;
+		}
+
+		.overlay {
+		  position: absolute;
+		  bottom: 10px;
+		  left: 0;
+		  right: 0;
+		  background-color: rgba(255, 255, 255, 0.5);
+		  overflow: hidden;
+		  height: 0;
+		  transition: .5s ease;
+		  width: 100%;
+		}
+
+		.image_area:hover .overlay {
+		  height: 50%;
+		  cursor: pointer;
+		}
+
+		.text {
+		  color: #333;
+		  font-size: 20px;
+		  position: absolute;
+		  top: 50%;
+		  left: 50%;
+		  -webkit-transform: translate(-50%, -50%);
+		  -ms-transform: translate(-50%, -50%);
+		  transform: translate(-50%, -50%);
+		  text-align: center;
+        }
+        
+        /*Selecionar imagen form*/
+
+        .radio {
+            opacity: 0;
+            position: absolute;
+        }
+
+       
+
+      
+
+  
+      /* Style the input fields */
+      input {
+        padding: 10px;
+        width: 100%;
+        font-size: 17px;
+        font-family: Raleway;
+        border: 1px solid #aaaaaa;
+      }
+  
+      /* Mark input boxes that gets an error on validation: */
+      input.invalid {
+        background-color: #ffdddd;
+      }
+  
+      /* Hide all steps by default: */
+      .tab {
+        display: none;
+      }
+  
+      /* Make circles that indicate the steps of the form: */
+     
+
+
+      .radio {
+        opacity: 0;
+        position: absolute;
+    }
+    input[type="radio"]:checked + label {
+        border: 10px solid orange;
+    }
+
+
+   
