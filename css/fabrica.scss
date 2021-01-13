@@ -1,5 +1,6 @@
 //Paleta de colores
 $main_color: #76B729;
+$second-color: #9A1980;
 $text_white: #fff;
 
 // Small tablets and large smartphones (landscape view)
@@ -51,6 +52,7 @@ $screen-lg-min: 1100px;
     line-height: 1.55em;
   }
   label{
+    background-color: #fff !important;
     background-size: 70% !important;
     border: 5px $text_white solid;
     border-radius: 50%;
@@ -64,10 +66,11 @@ $screen-lg-min: 1100px;
       height: 250px;
       width: 250px;
     }
-    @include lg{
-      height: 300px;
-      width: 300px;
+    &:hover{
+      background-color:$second-color !important;
+      transition: 1s;
     }
+    //Billetes
     &[for="b-100"]{
       background: url('../images/billete_100.png') no-repeat center;
     }
@@ -77,12 +80,25 @@ $screen-lg-min: 1100px;
     &[for="b-500"]{
       background: url('../images/billete_500.png') no-repeat center;
     }
+    //Sellos
+    &[for="s-001"]{
+      background: url('../images/sello_001.png') no-repeat center;
+    }
+    &[for="s-002"]{
+      background: url('../images/sello_002.png') no-repeat center;
+    }
+    &[for="s-003"]{
+      background: url('../images/sello_003.png') no-repeat center;
+    }
+    &[for="s-004"]{
+      background: url('../images/sello_004.png') no-repeat center;
+    }
 
   }
   input[type="radio"]{
     &:checked + label {
-      background-color: $text_white;
-      border: 5px solid $main_color;
+      background-color: $main_color !important;
+      border: 5px solid $text_white;
       transition: 1s;
     } 
   }

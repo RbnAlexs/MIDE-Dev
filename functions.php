@@ -17,15 +17,15 @@ function fabrica_scripts() {
 			 array('jquery') 
 		 );
  
-		 wp_enqueue_script('bootstrap_js', get_stylesheet_directory_uri() . '/js/bootstrap.min.js', array('jquery'), '4.4.1', true);
- 
+	/* 		 wp_enqueue_script('bootstrap_js', get_stylesheet_directory_uri() . '/js/bootstrap.min.js', array('jquery'), '4.4.1', true);
+	*/ 
 		 wp_enqueue_script('cropper_js', get_stylesheet_directory_uri() . '/js/cropper.js', array('cropper'), true);
  
-		 wp_enqueue_style( 
+		/*  wp_enqueue_style( 
 			 'slider', 
 			 get_stylesheet_directory_uri()  . '/css/bootstrap.min.css',
 			 false,'1.1','all'
-			 );
+			 ); */
  
 		 wp_enqueue_style( 
 			 'cropper', 
@@ -71,13 +71,23 @@ function formularioFabrica() {
 			<h3>Los sellos distintivos ayudan a aumentar la seguridad de los billetes.</h3>
 
 			<input type="radio" class="radio" name="sellosBillete" id="s-001" value="selloUno" checked />
-			<label for="s-001" class="label-b">Example 1</label>
+			<label for="s-001" class="label-b">Sello 01</label>
+
+			<input type="radio" class="radio" name="sellosBillete" id="s-002" value="selloDos"  />
+			<label for="s-002" class="label-b">Sello 02</label>
+
+			<input type="radio" class="radio" name="sellosBillete" id="s-003" value="selloTres"  />
+			<label for="s-003" class="label-b">Sello 03</label>
+
+			<input type="radio" class="radio" name="sellosBillete" id="s-004" value="selloCuatro" />
+			<label for="s-004" class="label-b">Sello 04</label>
+
 		</div>
 
 		<div class="tab">
 			<h2>Sube tu foto</h2>	
-				<label for="upload_image">
-				<img src="upload/user.png" id="uploaded_image" class="img-responsive img-circle" />
+			<label for="upload_image">
+				<img src="<?php  echo get_stylesheet_directory_uri()?>/images/id-facial.png" id="uploaded_image" class="img-responsive img-circle" />
 				<div class="overlay">
 					<div class="text">Click to Change Profile Image</div>
 				</div>
@@ -85,15 +95,22 @@ function formularioFabrica() {
 			</label>				
 		</div>
 
-		<div class="tab">Listo para el acercamiento?
-			<input class="btn-merge" type="button" value="Unir" />
+		<div class="tab">
+			<h2>Sube tu foto</h2>	
+			<img src="<?php  echo get_stylesheet_directory_uri()?>/images/loading.gif" id="imageID"/>
+			<!-- <input class="btn-merge" type="button" value="Unir" /> -->
+			<button type="button" id="nextBtn" class="btn-merge" onclick="nextPrev(1)" class="fabrica__botones__siguiente">Siguiente</button>
+		</div>
+
+
+		<div class="tab">Listo para el acercamiento?		
 			<img class="merged-image hidden" alt="merged image" />
 			<canvas id="canvas" class="hidden"></canvas>
-			<a target="_blank" class="share-button share-facebook" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $postUrl; ?>" title="Share on Facebook">Share on Facebook</a>
-
 		</div>
 
 		<div class="fabrica__steps">
+			<span class="step"></span>
+			<span class="step"></span>
 			<span class="step"></span>
 			<span class="step"></span>
 			<span class="step"></span>
@@ -142,14 +159,22 @@ function formularioFabrica() {
           // This function will display the specified tab of the form ...
           var x = document.getElementsByClassName("tab");
           x[n].style.display = "block";
+
+			//Ocultar imagen despues de un tiempo
+			setTimeout(function() {
+				document.getElementById('imageID').style.display='none'
+			}, 10*5000);
+
           // ... and fix the Previous/Next buttons:
           if (n == 0) {
             document.getElementById("prevBtn").style.display = "none";
           } else {
             document.getElementById("prevBtn").style.display = "inline";
           }
-          if (n == (x.length - 1)) {
-            document.getElementById("nextBtn").innerHTML = "Submit";
+          if (n == (x.length)) {
+            //document.getElementById("nextBtn").innerHTML = "Submit";
+			document.getElementById("nextBtn").style.display = "none";
+
           } else {
             document.getElementById("nextBtn").innerHTML = "Siguiente";
           }
@@ -436,3 +461,11 @@ add_shortcode('fabricaBilletes', 'formularioFabrica');
 
 
 
+add_action( 'widgets_init', 'widget_academia' );
+function widget_academia () {
+	register_sidebar( array(
+	'name' => 'Academia MIDE',
+	'id' => 'academia-mide',
+	'class' => 'academia-mide',
+	) );
+}
