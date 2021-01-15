@@ -12,12 +12,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 function fabrica_scripts() {
 	if ( is_page('fabrica-de-billetes') ) {
 
-		wp_enqueue_script('jquery', get_stylesheet_directory_uri() . '/js/jquery.min.js',  array('jquery'), false, true );
+	/* 	wp_enqueue_script('jquery', get_stylesheet_directory_uri() . '/js/jquery.min.js',  array('jquery'), false, true );
  
 		wp_enqueue_script('bootstrap_js', get_stylesheet_directory_uri() . '/js/bootstrap.min.js', array('jquery'), false, true);
 	
 		wp_enqueue_script('cropper_js', get_stylesheet_directory_uri() . '/js/cropper.js', array('cropper'), true);
- 
+  */
 		  wp_enqueue_style( 
 			 'slider', 
 			 get_stylesheet_directory_uri()  . '/css/bootstrap.min.css',
