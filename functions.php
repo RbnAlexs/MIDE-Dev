@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 function fabrica_scripts() {
-	if ( is_page('292') ) {
+	if ( is_page('fabrica-de-billetes') ) {
 		 wp_enqueue_script(
 			 'classie',
 			 get_stylesheet_directory_uri() . '/js/jquery.min.js', 
