@@ -12,6 +12,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 function fabrica_scripts() {
 	if ( is_page('fabrica-de-billetes') ) {
 
+		wp_deregister_script('jquery');
+
 		wp_enqueue_script('jquery', get_stylesheet_directory_uri() . '/js/jquery.min.js',  array('jquery'), false, true );
 
 		wp_enqueue_script('bootstrap_js', get_stylesheet_directory_uri() . '/js/bootstrap.min.js', array('jquery'), '4.4.1', true);
