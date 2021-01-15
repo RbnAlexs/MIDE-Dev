@@ -17,15 +17,15 @@ function fabrica_scripts() {
 			 array('jquery') 
 		 );
  
-	/* 		 wp_enqueue_script('bootstrap_js', get_stylesheet_directory_uri() . '/js/bootstrap.min.js', array('jquery'), '4.4.1', true);
-	*/ 
+	 		 wp_enqueue_script('bootstrap_js', get_stylesheet_directory_uri() . '/js/bootstrap.min.js', array('jquery'), '4.4.1', true);
+	
 		 wp_enqueue_script('cropper_js', get_stylesheet_directory_uri() . '/js/cropper.js', array('cropper'), true);
  
-		/*  wp_enqueue_style( 
+		  wp_enqueue_style( 
 			 'slider', 
 			 get_stylesheet_directory_uri()  . '/css/bootstrap.min.css',
 			 false,'1.1','all'
-			 ); */
+		  );
  
 		 wp_enqueue_style( 
 			 'cropper', 
